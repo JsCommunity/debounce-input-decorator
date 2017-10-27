@@ -25,7 +25,9 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
       this._onChange = event => {
         this.setState({ value: getEventValue(event) })
 
-        event.persist()
+        if (event != null && typeof event.persist === 'function') {
+          event.persist()
+        }
         this._notify(event)
       }
 
