@@ -1,0 +1,92 @@
+{
+  "name": "debounce-input-decorator",
+  "version": "0.0.0",
+  "license": "ISC",
+  "description": "Decorator to easily create debounced React inputs",
+  "keywords": [
+    "component",
+    "debounce",
+    "input",
+    "onChange",
+    "react",
+    "textarea"
+  ],
+  "homepage": "https://github.com/JsCommunity/debounce-input-decorator",
+  "bugs": "https://github.com/JsCommunity/debounce-input-decorator/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JsCommunity/debounce-input-decorator.git"
+  },
+  "author": {
+    "name": "Julien Fontanet",
+    "email": "julien.fontanet@isonoe.net"
+  },
+  "preferGlobal": false,
+  "main": "dist/",
+  "bin": {},
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {
+    "babel-polyfill": "^7.0.0-beta.3",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^7.0.0-beta.3",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "commitizen": "^2.9.6",
+    "cross-env": "^5.1.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "dependency-check": "^2.9.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-to-json": "^3.1.4",
+    "husky": "^0.14.3",
+    "jest": "^21.3.0-beta.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "rimraf": "^2.6.2",
+    "standard": "^10.0.3"
+  },
+  "peerDependencies": {
+    "react": "^15 || ^16"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production babel --source-maps --out-dir=dist/ src/",
+    "commitmsg": "npm test",
+    "cz": "git-cz",
+    "dev": "cross-env NODE_ENV=development babel --watch --source-maps --out-dir=dist/ src/",
+    "dev-test": "jest --bail --watch",
+    "posttest": "dependency-check ./package.json",
+    "prebuild": "rimraf dist/",
+    "predev": "npm run prebuild",
+    "prepublish": "npm run build",
+    "pretest": "standard --fix",
+    "test": "jest"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testRegex": "\\.spec\\.js$",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "dist"
+    ],
+    "parser": "babel-eslint"
+  }
+}
