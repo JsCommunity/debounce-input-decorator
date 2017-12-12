@@ -12,36 +12,15 @@ Installation of the [npm package](https://npmjs.org/package/debounce-input-decor
 
 ## Usage
 
+You can apply this decorator either to a DOM element or to any React component as long as it accepts `onChange` and `value` properties.
+
 ```js
-import React, Component from 'react'
 import debounceDecorator from 'debounce-input-decorator'
-import { render } from 'react-dom'
-
-const Input = debounceDecorator(250)('input')
-
-class App extends Component {
-  state = {
-    value: ''
-  }
-
-  render () {
-    return <Input
-      onChange={event => this.setState({ value: event.target.value })}
-      value={this.state.value}
-    />
-  }
-}
-
-render(App, document.body)
-```
-
-You can apply this decorator to any React component as long as it
-accepts `onChange` and `value` properties like this:
-
-```js
 import { Input } from 'reactstrap'
 
-const InputDebounced = debounceDecorator(250)(Input)
+const ReactStrapInputDebounced = debounceDecorator(250)(Input)
+
+const DomInputDebounced = debounceDecorator(250)('input')
 ```
 
 Because you usually need a `input` or `textarea`, those are provided
