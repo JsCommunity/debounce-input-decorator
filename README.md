@@ -36,7 +36,13 @@ render(App, document.body)
 ```
 
 You can apply this decorator to any React component as long as it
-accepts `onChange` and `value` properties.
+accepts `onChange` and `value` properties like this:
+
+```js
+import { Input } from 'reactstrap'
+
+const Input = debounceDecorator(250)('input')
+```
 
 Because you usually need a `input` or `textarea`, those are provided
 directly:
