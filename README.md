@@ -41,7 +41,7 @@ accepts `onChange` and `value` properties like this:
 ```js
 import { Input } from 'reactstrap'
 
-const Input = debounceDecorator(250)(Input)
+const InputDebounced = debounceDecorator(250)(Input)
 ```
 
 Because you usually need a `input` or `textarea`, those are provided
