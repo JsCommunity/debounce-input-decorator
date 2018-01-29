@@ -2,6 +2,7 @@
 
 exports[`Input 1`] = `
 <input
+  onBlur={[Function]}
   onChange={[Function]}
   value=""
 />
@@ -9,6 +10,7 @@ exports[`Input 1`] = `
 
 exports[`Textarea 1`] = `
 <textarea
+  onBlur={[Function]}
   onChange={[Function]}
   value=""
 />

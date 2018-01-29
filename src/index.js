@@ -22,6 +22,14 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
         this.props.onChange(event)
       }, typeof delay === 'function' ? delay(props) : delay)
 
+      this._onBlur = event => {
+        this._notify.flush()
+        const { onBlur } = this.props
+        if (onBlur !== undefined) {
+          onBlur(event)
+        }
+      }
+
       this._onChange = event => {
         this.setState({ value: getEventValue(event) })
 
@@ -54,6 +62,7 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
 
     render () {
       const props = Object.assign({}, this.props, {
+        onBlur: this._onBlur,
         onChange: this._onChange,
         ref: this._onRef,
         value: this.state.value
