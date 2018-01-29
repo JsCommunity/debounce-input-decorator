@@ -13,7 +13,7 @@ forEach({ Input, Textarea }, (Component, name) => {
   it(name, () => {
     expect(shallow(React.createElement(Component, {
       debounceTimeout: 250,
-      value: ''
+      value: '',
     }))).toMatchSnapshot()
   })
 })

@@ -76,7 +76,7 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
         onChange: this._onChange,
         onKeyDown: this._onKeyDown,
         ref: this._onRef,
-        value: this.state.value
+        value: this.state.value,
       })
       delete props.debounceTimeout
       return React.createElement(Input, props)

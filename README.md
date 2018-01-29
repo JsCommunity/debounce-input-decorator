@@ -52,9 +52,6 @@ import { Input, Textarea } from 'debounce-input-decorator'
 
 # Build for production (automatically called by npm install)
 > yarn build
-
-# Commit changes
-> yarn cz
 ```
 
 ## Contributions
