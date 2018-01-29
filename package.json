@@ -1,6 +1,6 @@
 {
   "name": "debounce-input-decorator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "ISC",
   "description": "Decorator to easily create debounced React inputs",
   "keywords": [
