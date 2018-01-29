@@ -39,6 +39,16 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
         this._notify(event)
       }
 
+      this._onKeyDown = event => {
+        if (event != null && event.key === 'Enter') {
+          this._notify.flush()
+        }
+        const { onKeyDown } = this.props
+        if (onKeyDown !== undefined) {
+          onKeyDown(event)
+        }
+      }
+
       this._wrappedInstance = null
       this._onRef = ref => {
         this._wrappedInstance = ref
@@ -64,6 +74,7 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
       const props = Object.assign({}, this.props, {
         onBlur: this._onBlur,
         onChange: this._onChange,
+        onKeyDown: this._onKeyDown,
         ref: this._onRef,
         value: this.state.value
       })
