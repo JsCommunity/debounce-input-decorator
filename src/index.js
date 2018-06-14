@@ -12,11 +12,13 @@ const getEventValue = event => {
   ) ? value : event
 }
 
+const EMPTY_VALUE = { value: undefined }
+
 const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
   class DebouncedInput extends React.Component {
     constructor (props) {
       super()
-      this.state = { value: props.value }
+      this.state = {}
 
       this._notify = debounce(event => {
         this.props.onChange(event)
@@ -58,7 +60,7 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
     componentWillReceiveProps ({ value }) {
       if (value !== this.props.value) {
         this._notify.cancel()
-        this.setState({ value })
+        this.setState(EMPTY_VALUE)
       }
     }
 
@@ -76,9 +78,12 @@ const debounceInputDecorator = (delay = DEFAULT_DELAY) => Input =>
         onChange: this._onChange,
         onKeyDown: this._onKeyDown,
         ref: this._onRef,
-        value: this.state.value,
       })
       delete props.debounceTimeout
+      const { value } = this.state
+      if (value !== undefined) {
+        props.value = value
+      }
       return React.createElement(Input, props)
     }
   }
