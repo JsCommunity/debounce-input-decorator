@@ -27,6 +27,7 @@
   "files": [
     "dist/"
   ],
+  "browserslist": "> 0.5%, last 2 versions, Firefox ESR, not dead",
   "engines": {
     "node": ">=4"
   },
@@ -39,7 +40,7 @@
     "@babel/preset-env": "^7.0.0-beta.38",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.0.1",
-    "babel-jest": "^21",
+    "babel-jest": "^23.0.1",
     "cross-env": "^5.1.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
@@ -47,11 +48,11 @@
     "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3",
-    "jest": "^21",
+    "jest": "^23.1.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "rimraf": "^2.6.2"
